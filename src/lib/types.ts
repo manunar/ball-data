@@ -40,3 +40,91 @@ export interface RadarDataPoint {
   teamA: number;
   teamB: number;
 }
+
+export interface FollowedTeam {
+  id: string;
+  name: string;
+  abbreviation: string;
+  color: string;
+  secondaryColor: string;
+  sport: "basketball" | "football";
+  league: string;
+  position: number;
+  wins: number;
+  draws: number;
+  losses: number;
+  points: number;
+  form: ("W" | "L" | "D")[];
+  nextOpponent: string;
+}
+
+// ── Detail modal types ────────────────────────────────────────────────────────
+export interface RecentMatch {
+  opponent: string;
+  date: string;
+  result: "W" | "L" | "D";
+  scoreFor: number;
+  scoreAgainst: number;
+  competition: string;
+}
+
+export interface TeamTopPlayer {
+  name: string;
+  position: string;
+  number: number;
+  teamColor: string;
+  stat1: { label: string; value: string | number };
+  stat2: { label: string; value: string | number };
+  rating: number;
+}
+
+export interface TeamDetailData {
+  recentMatches: RecentMatch[];
+  topPlayers: TeamTopPlayer[];
+  seasonStats: { label: string; value: string | number }[];
+}
+
+export interface PlayerRecentMatch {
+  opponent: string;
+  date: string;
+  result: "W" | "L" | "D";
+  scoreFor: number;
+  scoreAgainst: number;
+  stats: { label: string; value: string | number }[];
+}
+
+export interface PlayerDetailData {
+  recentMatches: PlayerRecentMatch[];
+}
+
+export interface GameTeamStat {
+  label: string;
+  home: number;
+  away: number;
+}
+
+export interface GamePlayerStat {
+  name: string;
+  number: number;
+  stats: { label: string; value: string | number }[];
+}
+
+export interface GameDetailData {
+  teamStats: GameTeamStat[];
+  homePlayers: GamePlayerStat[];
+  awayPlayers: GamePlayerStat[];
+}
+
+export interface FollowedPlayer {
+  id: string;
+  name: string;
+  position: string;
+  team: string;
+  teamColor: string;
+  sport: "basketball" | "football";
+  number: number;
+  stat1: { label: string; value: string | number };
+  stat2: { label: string; value: string | number };
+  stat3: { label: string; value: string | number };
+  rating: number;
+}

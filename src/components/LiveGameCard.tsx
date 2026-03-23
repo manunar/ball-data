@@ -4,7 +4,7 @@ import WinProbabilityBar from "./WinProbabilityBar";
 
 export default function LiveGameCard({ game }: { game: LiveGame }) {
   return (
-    <div className="relative bg-[#12121a] border border-[#1e1e2e] rounded-xl p-5 shadow-[0_0_20px_rgba(100,50,200,0.1)] hover:shadow-[0_0_30px_rgba(100,50,200,0.2)] transition-shadow">
+    <div className="relative bg-[#12121a] border border-[#1e1e2e] rounded-xl p-5 shadow-[0_0_20px_rgba(100,50,200,0.1)] hover:shadow-[0_0_35px_rgba(100,50,200,0.35)] hover:-translate-y-1.5 hover:scale-[1.02] hover:border-[#3a2a5e] transition-all duration-300 ease-out cursor-pointer">
       {game.isLive && (
         <span className="absolute top-3 left-1/2 -translate-x-1/2 bg-red-500 text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider">
           Live

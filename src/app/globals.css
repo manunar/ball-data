@@ -9,16 +9,47 @@
   --color-accent-purple: #a855f7;
   --color-accent-red: #ef4444;
   --color-muted: #6b7280;
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-barlow);
   --font-mono: var(--font-geist-mono);
 }
 
 body {
   background: var(--color-background);
   color: var(--color-foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-barlow), Arial, sans-serif;
 }
 
+/* ── Floating sport element animations ─────────────────────────────────── */
+@keyframes sport-float-a {
+  0%   { transform: translateY(0px)   rotate(0deg); }
+  25%  { transform: translateY(-22px) rotate(90deg); }
+  50%  { transform: translateY(-38px) rotate(180deg); }
+  75%  { transform: translateY(-18px) rotate(270deg); }
+  100% { transform: translateY(0px)   rotate(360deg); }
+}
+
+@keyframes sport-float-b {
+  0%   { transform: translate(0px, 0px)    rotate(0deg); }
+  30%  { transform: translate(18px, -28px) rotate(-110deg); }
+  60%  { transform: translate(-12px, -40px) rotate(-220deg); }
+  100% { transform: translate(0px, 0px)    rotate(-360deg); }
+}
+
+@keyframes sport-float-c {
+  0%   { transform: translate(0px, 0px)     rotate(0deg); }
+  20%  { transform: translate(-20px, -15px) rotate(60deg); }
+  50%  { transform: translate(15px, -32px)  rotate(150deg); }
+  80%  { transform: translate(-8px, -20px)  rotate(250deg); }
+  100% { transform: translate(0px, 0px)     rotate(360deg); }
+}
+
+@keyframes sport-float-d {
+  0%   { transform: translateY(0px)   rotate(0deg); }
+  50%  { transform: translateY(30px)  rotate(-180deg); }
+  100% { transform: translateY(0px)   rotate(-360deg); }
+}
+
+/* ── Scrollbar ─────────────────────────────────────────────────────────── */
 ::-webkit-scrollbar {
   width: 8px;
 }
