@@ -49,11 +49,11 @@ export default function MiniRadarChart({
   return (
     <div style={{ width: size, height: size }}>
       <ResponsiveContainer width="100%" height="100%">
-        <RadarChart data={merged} cx="50%" cy="50%" outerRadius="70%">
+        <RadarChart data={merged} cx="50%" cy="50%" outerRadius="45%">
           <PolarGrid stroke={gridStroke} />
           <PolarAngleAxis
             dataKey="stat"
-            tick={{ fill: tickFill, fontSize: 10 }}
+            tick={{ fill: tickFill, fontSize: 13 }}
           />
           {previousData && (
             <Radar

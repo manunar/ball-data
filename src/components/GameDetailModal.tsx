@@ -19,7 +19,7 @@ function PlayerCard({
 
   const nameContent = (
     <span
-      className={`text-base font-semibold ${player.playerId ? "hover:underline" : ""}`}
+      className={`text-lg font-semibold ${player.playerId ? "hover:underline" : ""}`}
       style={{ color: teamColor }}
     >
       {player.name}
@@ -27,11 +27,11 @@ function PlayerCard({
   );
 
   return (
-    <div className="bg-[var(--bg-surface)] rounded-xl p-5 border border-[var(--bg-card)] transition-colors duration-300">
+    <div className="bg-[var(--bg-surface)] rounded-2xl p-7 border border-[var(--bg-card)] transition-colors duration-300">
       {/* header */}
-      <div className="flex items-center gap-3 mb-4">
+      <div className="flex items-center gap-4 mb-5">
         <div
-          className="w-11 h-11 rounded-full flex items-center justify-center text-xs font-bold"
+          className="w-14 h-14 rounded-full flex items-center justify-center text-sm font-bold"
           style={{ background: `${teamColor}22`, color: teamColor }}
         >
           #{player.number}
@@ -45,10 +45,10 @@ function PlayerCard({
         </div>
         {player.stats.find((s) => s.label === "Rating") && (
           <div
-            className="w-10 h-10 rounded-full border-2 flex items-center justify-center"
+            className="w-12 h-12 rounded-full border-2 flex items-center justify-center"
             style={{ borderColor: teamColor }}
           >
-            <span className="text-xs font-bold text-[var(--text-primary)]">
+            <span className="text-sm font-bold text-[var(--text-primary)]">
               {player.stats.find((s) => s.label === "Rating")?.value}
             </span>
           </div>
@@ -56,20 +56,22 @@ function PlayerCard({
       </div>
 
       {/* radar chart + stats side by side */}
-      <div className="flex items-center gap-4">
+      <div className="flex items-start gap-3">
         {player.radarStats && (
-          <MiniRadarChart
-            data={player.radarStats}
-            color={teamColor}
-            size={150}
-            previousData={showPrev ? player.previousMatch?.radarStats : undefined}
-          />
+          <div className="shrink-0">
+            <MiniRadarChart
+              data={player.radarStats}
+              color={teamColor}
+              size={230}
+              previousData={showPrev ? player.previousMatch?.radarStats : undefined}
+            />
+          </div>
         )}
-        <div className="flex-1 grid grid-cols-2 gap-x-4 gap-y-2.5">
+        <div className="flex-1 grid grid-cols-3 gap-x-4 gap-y-3 pt-2">
           {player.stats.map((s) => (
             <div key={s.label}>
-              <div className="text-xs text-[var(--text-muted)]">{s.label}</div>
-              <div className="text-base font-bold text-[var(--text-primary)]">{s.value}</div>
+              <div className="text-sm text-[var(--text-muted)]">{s.label}</div>
+              <div className="text-lg font-bold text-[var(--text-primary)]">{s.value}</div>
             </div>
           ))}
         </div>
@@ -77,26 +79,26 @@ function PlayerCard({
 
       {/* previous match toggle */}
       {player.previousMatch && (
-        <div className="mt-4 pt-4 border-t border-[var(--bg-card)]">
+        <div className="mt-5 pt-5 border-t border-[var(--bg-card)]">
           <button
             onClick={() => setShowPrev(!showPrev)}
-            className="text-xs text-[var(--text-muted)] hover:text-[var(--text-secondary)] transition-colors mb-2"
+            className="text-sm text-[var(--text-muted)] hover:text-[var(--text-secondary)] transition-colors mb-3"
           >
             {showPrev ? "Hide" : "Show"} Previous Match
             {showPrev ? " ▲" : " ▼"}
           </button>
           {showPrev && (
-            <div className="flex items-center gap-4 animate-in"
+            <div className="flex items-center gap-5 animate-in"
               style={{ animation: "modal-in 0.2s ease-out" }}
             >
-              <span className="text-xs text-[var(--text-muted)]">
+              <span className="text-sm text-[var(--text-muted)]">
                 vs {player.previousMatch.opponent}
               </span>
-              <div className="flex gap-4">
+              <div className="flex gap-5">
                 {player.previousMatch.stats.map((s) => (
                   <div key={s.label} className="text-center">
-                    <div className="text-xs text-[var(--text-muted)]">{s.label}</div>
-                    <div className="text-sm font-bold text-[var(--text-secondary)]">{s.value}</div>
+                    <div className="text-sm text-[var(--text-muted)]">{s.label}</div>
+                    <div className="text-base font-bold text-[var(--text-secondary)]">{s.value}</div>
                   </div>
                 ))}
               </div>
@@ -140,7 +142,7 @@ export default function GameDetailModal({
 
       <div
         onClick={(e) => e.stopPropagation()}
-        className="relative w-full max-w-5xl max-h-[90vh] overflow-y-auto bg-[var(--bg-card)] border border-[var(--border-color)] rounded-2xl shadow-[0_0_60px_var(--modal-shadow)] transition-colors duration-300"
+        className="relative w-full max-w-6xl max-h-[90vh] overflow-y-auto bg-[var(--bg-card)] border border-[var(--border-color)] rounded-2xl shadow-[0_0_60px_var(--modal-shadow)] transition-colors duration-300"
         style={{ animation: "modal-in 0.25s ease-out" }}
       >
         {/* close */}
