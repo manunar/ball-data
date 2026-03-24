@@ -8,9 +8,9 @@ export default function TeamLogo({
   size?: "sm" | "md" | "lg";
 }) {
   const sizeClasses = {
-    sm: "w-8 h-8 text-[10px]",
-    md: "w-12 h-12 text-xs",
-    lg: "w-14 h-14 text-sm",
+    sm: "w-10 h-10 text-xs",
+    md: "w-14 h-14 text-sm",
+    lg: "w-18 h-18 text-base",
   };
 
   return (

@@ -19,11 +19,11 @@ export default function WinProbabilityBar({
 
   return (
     <div className="w-full">
-      <div className="flex justify-between text-xs mb-1">
+      <div className="flex justify-between text-sm mb-1.5">
         <span className="text-green-400 font-semibold">{homeWinProbability}%</span>
-        <span className="text-purple-400 font-semibold">{100 - homeWinProbability}%</span>
+        <span className="text-blue-400 font-semibold">{100 - homeWinProbability}%</span>
       </div>
-      <div className="w-full h-2 rounded-full overflow-hidden flex bg-gray-800">
+      <div className="w-full h-2.5 rounded-full overflow-hidden flex bg-gray-800">
         <div
           className="h-full bg-green-500 rounded-l-full"
           style={{
@@ -32,14 +32,14 @@ export default function WinProbabilityBar({
           }}
         />
         <div
-          className="h-full bg-purple-500 rounded-r-full"
+          className="h-full bg-blue-500 rounded-r-full"
           style={{
             width: `${awayWidth}%`,
             transition: "width 1.1s cubic-bezier(0.4, 0, 0.2, 1)",
           }}
         />
       </div>
-      <div className="text-center text-[10px] text-gray-500 mt-1">Win Probability</div>
+      <div className="text-center text-xs text-[var(--text-muted)] mt-1.5">Win Probability</div>
     </div>
   );
 }

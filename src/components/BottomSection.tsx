@@ -17,25 +17,25 @@ export default function BottomSection() {
   ];
 
   return (
-    <div className="mt-6 bg-[#12121a] border border-[#1e1e2e] rounded-xl p-5">
+    <div className="mt-8 bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl p-6">
       {/* Tabs */}
-      <div className="flex items-center gap-1 mb-5">
+      <div className="flex items-center gap-1 mb-6">
         {tabs.map((tab) => (
           <button
             key={tab.id}
             onClick={() => setActiveTab(tab.id)}
-            className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+            className={`px-5 py-2.5 rounded-lg text-base font-medium transition-colors ${
               activeTab === tab.id
-                ? "bg-[#1e1e2e] text-white"
-                : "text-gray-500 hover:text-gray-300"
+                ? "bg-[var(--border-color)] text-[var(--text-primary)]"
+                : "text-[var(--text-muted)] hover:text-[var(--text-secondary)]"
             }`}
           >
             {tab.label}
           </button>
         ))}
         <div className="ml-auto">
-          <button className="text-gray-500 hover:text-white transition-colors">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <button className="text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
               <circle cx="12" cy="5" r="2" />
               <circle cx="12" cy="12" r="2" />
               <circle cx="12" cy="19" r="2" />
@@ -50,7 +50,7 @@ export default function BottomSection() {
           {activeTab === "player-stats" && <PlayerStatsTable />}
           {activeTab === "team-comparison" && <TeamComparison />}
           {activeTab === "shot-chart" && (
-            <div className="text-gray-400 text-sm">Select a game to view detailed shot chart data.</div>
+            <div className="text-[var(--text-secondary)] text-base">Select a game to view detailed shot chart data.</div>
           )}
         </div>
         <div className="lg:col-span-1">

@@ -5,7 +5,7 @@ import BasketballBackground from "@/components/BasketballBackground";
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen bg-[#0a0a0f] text-white">
+    <main className="relative min-h-screen bg-[var(--bg-page)] text-[var(--text-primary)]">
       <BasketballBackground />
       <div className="relative" style={{ zIndex: 1 }}>
         <Header />

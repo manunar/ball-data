@@ -1,22 +1,67 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-background: #0a0a0f;
-  --color-foreground: #ededed;
-  --color-card: #12121a;
-  --color-card-border: #1e1e2e;
+  --color-background: var(--bg-page);
+  --color-foreground: var(--text-primary);
+  --color-card: var(--bg-card);
+  --color-card-border: var(--border-color);
   --color-accent-green: #22c55e;
-  --color-accent-purple: #a855f7;
+  --color-accent-blue: #3b82f6;
   --color-accent-red: #ef4444;
-  --color-muted: #6b7280;
+  --color-muted: var(--text-muted);
   --font-sans: var(--font-barlow);
   --font-mono: var(--font-geist-mono);
 }
 
+/* ── Dark theme (default) ─────────────────────────────────────────────── */
+:root {
+  --bg-page: #111827;
+  --bg-card: #1e293b;
+  --bg-surface: #0f172a;
+  --bg-hover: #334155;
+  --border-color: #334155;
+  --border-hover: #475569;
+  --text-primary: #ffffff;
+  --text-secondary: #9ca3af;
+  --text-muted: #6b7280;
+  --text-dim: #4b5563;
+  --shadow-glow: rgba(59,130,246,0.08);
+  --shadow-glow-hover: rgba(59,130,246,0.25);
+  --modal-shadow: rgba(59,130,246,0.15);
+  --ring-track: #334155;
+  --toggle-bg: #1e293b;
+  --overlay-bg: rgba(0,0,0,0.7);
+}
+
+/* ── Light theme ──────────────────────────────────────────────────────── */
+:root.light {
+  --bg-page: #f1f5f9;
+  --bg-card: #ffffff;
+  --bg-surface: #f8fafc;
+  --bg-hover: #e2e8f0;
+  --border-color: #e2e8f0;
+  --border-hover: #cbd5e1;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --text-dim: #94a3b8;
+  --shadow-glow: rgba(0,0,0,0.05);
+  --shadow-glow-hover: rgba(0,0,0,0.12);
+  --modal-shadow: rgba(0,0,0,0.15);
+  --ring-track: #e2e8f0;
+  --toggle-bg: #e2e8f0;
+  --overlay-bg: rgba(0,0,0,0.4);
+}
+
+html {
+  font-size: 18px;
+}
+
 body {
-  background: var(--color-background);
-  color: var(--color-foreground);
+  background: var(--bg-page);
+  color: var(--text-primary);
   font-family: var(--font-barlow), Arial, sans-serif;
+  transition: background 0.3s, color 0.3s;
 }
 
 /* ── Floating sport element animations ─────────────────────────────────── */
@@ -49,16 +94,22 @@ body {
   100% { transform: translateY(0px)   rotate(-360deg); }
 }
 
+/* ── Modal animation ──────────────────────────────────────────────────── */
+@keyframes modal-in {
+  from { opacity: 0; transform: scale(0.95) translateY(10px); }
+  to   { opacity: 1; transform: scale(1)    translateY(0); }
+}
+
 /* ── Scrollbar ─────────────────────────────────────────────────────────── */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #0a0a0f;
+  background: var(--bg-page);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #2a2a3a;
+  background: var(--border-color);
   border-radius: 4px;
 }

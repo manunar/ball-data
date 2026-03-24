@@ -82,6 +82,7 @@ export interface TeamDetailData {
   recentMatches: RecentMatch[];
   topPlayers: TeamTopPlayer[];
   seasonStats: { label: string; value: string | number }[];
+  radarStats: { stat: string; value: number }[];
 }
 
 export interface PlayerRecentMatch {
@@ -95,6 +96,7 @@ export interface PlayerRecentMatch {
 
 export interface PlayerDetailData {
   recentMatches: PlayerRecentMatch[];
+  radarStats: { stat: string; value: number }[];
 }
 
 export interface GameTeamStat {
@@ -106,11 +108,20 @@ export interface GameTeamStat {
 export interface GamePlayerStat {
   name: string;
   number: number;
+  playerId?: string;
   stats: { label: string; value: string | number }[];
+  radarStats?: { stat: string; value: number }[];
+  previousMatch?: {
+    opponent: string;
+    stats: { label: string; value: string | number }[];
+    radarStats?: { stat: string; value: number }[];
+  };
 }
 
 export interface GameDetailData {
   teamStats: GameTeamStat[];
+  homeTeamRadar: { stat: string; value: number }[];
+  awayTeamRadar: { stat: string; value: number }[];
   homePlayers: GamePlayerStat[];
   awayPlayers: GamePlayerStat[];
 }

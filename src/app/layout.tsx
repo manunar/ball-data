@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Barlow } from "next/font/google";
 import "./globals.css";
+import { SportProvider } from "@/context/SportContext";
+import { ThemeProvider } from "@/context/ThemeContext";
 
 const barlow = Barlow({
   variable: "--font-barlow",
@@ -9,7 +11,7 @@ const barlow = Barlow({
 });
 
 export const metadata: Metadata = {
-  title: "Google Stitch - Sports Dashboard",
+  title: "Ball Data - Sports Dashboard",
   description: "Live sports analytics dashboard",
 };
 
@@ -20,8 +22,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${barlow.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col bg-[#0a0a0f] text-white">
-        {children}
+      <body className="min-h-full flex flex-col">
+        <ThemeProvider>
+          <SportProvider>{children}</SportProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
